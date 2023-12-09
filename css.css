@@ -1,0 +1,8 @@
+.bg{
+   height: 100%;
+   width: 100%;
+    background-image: url(dm6.jpg);
+    position: absolute;
+    z-index: -1;
+    nav-index: auto;
+}
