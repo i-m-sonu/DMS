@@ -1,0 +1,29 @@
+* {
+    margin: auto;
+    padding: auto;
+}
+
+body {
+    background-image: url('/images/a4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.t1 {
+    background-color: aliceblue;
+    opacity: 0.9;
+    border: 2px solid black;
+    border-radius: 12px;
+
+}
+
+.head {
+    margin: 19px;
+    background-color: rgb(224, 235, 239);
+
+}

@@ -1,0 +1,42 @@
+* {
+    margin: 15px auto;
+    padding: auto;
+}
+
+body {
+    background: green;
+}
+
+.a {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.a img {
+    width: 533px;
+}
+
+/* CSS for styling a button */
+.button {
+    background-color: #0073e6;
+    /* Background color */
+    color: white;
+    /* Text color */
+    padding: 10px 20px;
+    /* Padding (top/bottom, left/right) */
+    border: none;
+    /* Remove default button border */
+    border-radius: 5px;
+    /* Rounded corners */
+    font-size: 16px;
+    /* Font size */
+    cursor: pointer;
+    /* Cursor on hover */
+}
+
+/* Style the button on hover */
+.button:hover {
+    background-color: #005bbf;
+    /* Change background color on hover */
+}
