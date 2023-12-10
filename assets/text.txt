@@ -1,0 +1,28 @@
+  // Get the login form
+const loginForm = document.getElementById('loginForm');
+
+// Add an event listener for form submission
+loginForm.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    
+    // Get the value entered in the username field
+    const usernameInput = document.getElementById("Location").value;
+
+    // Check the username and redirect accordingly
+    if (usernameInput === 'himanchal') {
+        // Redirect to the admin page
+        window.location.href = '/assets/unsafe.html';
+    } else if (usernameInput === "goa") {
+        // Redirect to the user page
+        window.location.href = "/assets/likely_unsafe.html";
+    } else if (usernameInput === "bengaluru") {
+        // Redirect to the user page
+        window.location.href = "/assets/likely_unsafe.html";
+    }else if (usernameInput === "bangaluru") {
+        // Redirect to the user page
+        window.location.href = "/assets/likely_unsafe.html";
+    }  else {
+        // Redirect to a generic error page for invalid input
+        window.location.href = "/assets/safe.html";
+    }
+});
