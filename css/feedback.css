@@ -47,7 +47,7 @@ textarea {
 resize: vertical;
 }
 
-button {
+.submit {
 padding: 10px 20px;
 background-color: #0073e6;
 color: white;
@@ -57,6 +57,6 @@ font-size: 16px;
 cursor: pointer;
 }
 
-button:hover {
+.submit:hover {
 background-color: #005bbf;
 }

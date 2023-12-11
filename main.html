@@ -9,46 +9,57 @@
   <body>
     <div class="container">
       <h2>Login</h2>
-      <form id="loginForm">
-          <div class="form-group">
-              <label for="username">Username:</label>
-              <input type="text" id="username" name="username" required />
-            </div>
-            <div class="form-group">
-                <label for="contact">Contact:</label>
-                <input type="text" id="contact" name="contact" required />
-            </div>
-            <div class="form-group">
-                <label for="location">Location:</label>
-                <input type="text" id="location" name="location" required />
-            </div>
-            <div class="form-group">
-                <input type="submit"/>
-            </div>
-        </form>
+      <form id="loginForm" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact:</label>
+          <input type="text" id="contact" name="contact" required />
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required />
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
     </div>
     <script>
-        const apiUrl = "http://localhost:8080/login";
-        const submitForm = async (e) => {
-            e.preventDefault();
-            const username = document.getElementById("username").value;
-            const contact = document.getElementById("contact").value;
-            const location = document.getElementById("location").value;
-            document.getElementById("loginForm").addEventListener("submit", submitForm);
-        fetch(apiUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username, contact, location }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log("Data Sent to MongoDB", data);
-          })
-          .catch((error) => {
-            console.log("Error Sending data to MongoDB:", error);
+      const apiUrl = "http://localhost:8080/login";
+      const submitForm = async (e) => {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const contact = document.getElementById("contact").value;
+        const location = document.getElementById("location").value;
+        const dataset = {
+          username: username,
+          contact: contact,
+          location: location,
+        };
+        console.log("Data to be sent:", dataset);
+
+        try {
+          const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dataset),
           });
+
+          if (response.ok) {
+            const data = await response.json();
+            console.log("Data Sent to MongoDB:", data);
+          } else {
+            const errorMessage = await response.text();
+            console.log("Error Sending data to MongoDB:", errorMessage);
+          }
+        } catch (error) {
+          console.log("Error Sending data to MongoDB:", error.message);
+        }
       };
     </script>
   </body>
