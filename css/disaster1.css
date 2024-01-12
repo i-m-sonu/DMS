@@ -39,3 +39,10 @@ body {
 .fire {
   display: flex;
 }
+@media screen and (max-width:600px) {
+  .wind{
+    
+    display: none;
+  }
+  
+}
